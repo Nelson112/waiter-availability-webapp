@@ -18,19 +18,49 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-
 app.get("/waiter/:name", function(req, res) {
   var waiter = req.params.name;
-  var msg = ' Welcome ' + waiter;
+  var msg = ' Welcome ' + waiter
 
   res.render('index', {
-    waiter: msg
+    message: msg
   })
 })
 app.post("/waiter/:name", function(req, res, next) {
-
-  
+  var days = req.body.days;
+  var waiter = req.params.name;
+  var message = "Hey " + waiter + " your shift has been added"
+  models.waiterinfo.findOneAndUpdate({
+    name: waiter
+  }, {days:days},function(err, person) {
+    if (err) {
+      return next(err);
+    } else {
+      if (!person) {
+        var storedWaiters = new models.waiterinfo({
+          name: waiter,
+          days: days
+        });
+        storedWaiters.save()
+            }
+            else {
+              person.save()
+            }
+        }
+  })
+  console.log(waiter);
+  res.render("index", {
+    msg: message,
+    days: days
+  })
 });
+
+app.get("/admin", function (req, res, next) {
+
+
+
+res.render("admin", {})
+})
 
 
 var port = process.env.PORT || 3003
