@@ -6,5 +6,5 @@ mongoose.connect(mongoURL, {
 });
 exports.waiterinfo = mongoose.model('waiterinfo', {
   name: String,
-  days: Object
+  days: Array
 });

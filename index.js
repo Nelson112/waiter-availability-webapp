@@ -2,7 +2,6 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var app = express();
-var newPlate = [];
 var models = require('./models')
 
 app.use(bodyParser.urlencoded({
@@ -32,7 +31,9 @@ app.post("/waiter/:name", function(req, res, next) {
   var message = "Hey " + waiter + " your shift has been added"
   models.waiterinfo.findOneAndUpdate({
     name: waiter
-  }, {days:days},function(err, person) {
+  }, {
+    days: days
+  }, function(err, person) {
     if (err) {
       return next(err);
     } else {
@@ -42,11 +43,10 @@ app.post("/waiter/:name", function(req, res, next) {
           days: days
         });
         storedWaiters.save()
-            }
-            else {
-              person.save()
-            }
-        }
+      } else {
+        person.save()
+      }
+    }
   })
   console.log(waiter);
   res.render("index", {
@@ -55,12 +55,49 @@ app.post("/waiter/:name", function(req, res, next) {
   })
 });
 
-app.get("/admin", function (req, res, next) {
+app.get("/admin", function(req, res, next) {
+  var dailyWaiter = {
+    Monday: {
+      waiters: []
+    },
+    Tuesday: {
+      waiters: []
+    },
+    Wednesday: {
+      waiters: []
+    },
+    Thursday: {
+      waiters: []
+    },
+    Friday: {
+      waiters: []
+    },
+    Saturday: {
+      waiters: []
+    },
+    Sunday: {
+      waiters: []
+    }
+  }
+  models.waiterinfo.find({}, function(err, waiterShifts) {
+    if (err) {
+      return next(err);
+    } else {
+      waiterShifts.forEach(function(waiterShift) {
+        waiterShift.days.forEach(function(day) {
+          dailyWaiter[day].waiters.push(waiterShift.name)
+        })
+      })
+      console.log(dailyWaiter);
+    }
+  });
 
 
 
-res.render("admin", {})
-})
+  res.render("admin", {
+    data: dailyWaiter
+  })
+});
 
 
 var port = process.env.PORT || 3003
