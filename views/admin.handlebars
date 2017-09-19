@@ -1,7 +1,70 @@
+<a href="/" float="left">
+  <button type="submit" name="button">Home</button>
+</a>
+
 <form class="" action="" method="post">
   <h1>This Weeks Shifts are</h1>
-
-  {{#each data}}
-    {{this.waiters}}
-  {{/each}}
+  <br>
+  <table>
+    <tr>
+      <th class="{{monday}}">Monday</th>
+      <th class="{{tuesday}}">Tuesday</th>
+      <th class="{{wednesday}}">Wednesday</th>
+      <th class="{{thursday}}">Thursday</th>
+      <th class="{{friday}}">Friday</th>
+      <th class="{{saturday}}">Saturday</th>
+      <th class="{{sunday}}">Sunday</th>
+    </tr>
+    <tr>
+      <td>
+        {{#each data.Monday.waiters}}
+          <li>{{this}}</li>
+        {{/each}}
+      </td>
+      <td>
+        {{#each data.Tuesday.waiters}}
+          <li>{{this}}</li>
+        {{/each}}
+      </td>
+      <td>
+        {{#each data.Wednesday.waiters}}
+          <li>{{this}}</li>
+        {{/each}}
+      </td>
+      <td>
+        {{#each data.Thursday.waiters}}
+          <li>{{this}}</li>
+        {{/each}}
+      </td>
+      <td>
+        {{#each data.Friday.waiters}}
+          <li>{{this}}</li>
+        {{/each}}
+      </td>
+      <td>
+        {{#each data.Saturday.waiters}}
+          <li>{{this}}</li>
+        {{/each}}
+      </td>
+      <td>
+        {{#each data.Sunday.waiters}}
+          <li>{{this}}</li>
+        {{/each}}
+      </td>
+    </tr>
+  </table>
+  <h1>Key</h1>
+  <table>
+    <tr>
+      <th style="background-color: green;">Enough Waiters</th>
+      <th style="background-color: orange">Too Many Waiters</th>
+      <th style="background-color: red;">Still Need Waiter(s)</th>
+    </tr>
+  </table>
+  <br>
+  <br>
 </form>
+
+<a href="/waiters/reset" float="left">
+  <button type="submit" name="button">reset</button>
+</a>

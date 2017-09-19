@@ -17,11 +17,14 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
+app.get("/", function(req, res) {
+  res.render('index', {})
+})
 app.get("/waiter/:name", function(req, res) {
   var waiter = req.params.name;
   var msg = ' Welcome ' + waiter
 
-  res.render('index', {
+  res.render('waiter', {
     message: msg
   })
 })
@@ -48,12 +51,21 @@ app.post("/waiter/:name", function(req, res, next) {
       }
     }
   })
-  console.log(waiter);
-  res.render("index", {
+  res.render("waiter", {
     msg: message,
     days: days
   })
 });
+
+function colorHighLight(color) {
+  if (color === 3) {
+    return "color1"
+  } else if (color < 3) {
+    return "color2"
+  } else if (color > 3) {
+    return "color3"
+  }
+}
 
 app.get("/admin", function(req, res, next) {
   var dailyWaiter = {
@@ -79,6 +91,9 @@ app.get("/admin", function(req, res, next) {
       waiters: []
     }
   }
+
+  var color = '';
+
   models.waiterinfo.find({}, function(err, waiterShifts) {
     if (err) {
       return next(err);
@@ -88,18 +103,32 @@ app.get("/admin", function(req, res, next) {
           dailyWaiter[day].waiters.push(waiterShift.name)
         })
       })
-      console.log(dailyWaiter);
+
     }
-  });
-
-
-
-  res.render("admin", {
-    data: dailyWaiter
+    res.render("admin", {
+      data: dailyWaiter,
+      monday: colorHighLight(dailyWaiter.Monday.waiters.length),
+      tuesday: colorHighLight(dailyWaiter.Tuesday.waiters.length),
+      wednesday: colorHighLight(dailyWaiter.Wednesday.waiters.length),
+      thursday: colorHighLight(dailyWaiter.Thursday.waiters.length),
+      friday: colorHighLight(dailyWaiter.Friday.waiters.length),
+      saturday: colorHighLight(dailyWaiter.Saturday.waiters.length),
+      sunday: colorHighLight(dailyWaiter.Sunday.waiters.length)
+    });
   })
+
 });
 
+app.get("/waiters/reset", function(req, res, next) {
 
+  models.waiterinfo.remove({}, function(err, result) {
+    if (err) {
+      return next(err)
+    } else {
+      res.render('index', {});
+    }
+  });
+});
 var port = process.env.PORT || 3003
 
 app.use(function(err, req, res, next) {
