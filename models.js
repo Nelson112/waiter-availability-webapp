@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost/waiterdata";
+var mongoURL = process.env.MONGO_DB_URL || "mongodb://localhost/waiters";
 
 mongoose.connect(mongoURL, {
   useMongoClient: true,
