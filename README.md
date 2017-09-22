@@ -5,7 +5,7 @@
 <blockquote>
 <P>The application the allows users to choose the days which they are able to work in this case waiters will be our users.</p>
 <P>It will then show the administration in a table form how who will work on a particular day of the week</p>
-<P>and highlight the days that have, enough, too little or too many waiters all with a different color.</p>s
+<P>and highlight the days that have, enough, too little or too many waiters all with a different color.</p>
 
 ## How to run to run my applications on your machine.
 
