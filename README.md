@@ -12,8 +12,8 @@
 * You can get the application repository  by cloning it at [here](https://github.com/Nelson112/waiter-availability-webapp)
 
 ## You will need to install:
-* [NodeJS](https://nodejs.org/en/)<p> is an open source server framework</p>
-* [Mongo](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-mongodb-on-ubuntu-16-04)<p> is a document database with the scalability and flexibility that you want with the querying and indexing that you need</p>
+* [NodeJS](https://nodejs.org/en/) is an open source server framework
+* [Mongo](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-mongodb-on-ubuntu-16-04) is a document database with the scalability and flexibility that you want with the querying and indexing that you need
 
 ### There are also dependencies you need to install
 * [Body-Parser](https://www.npmjs.com/package/body-parser)
