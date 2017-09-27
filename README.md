@@ -1,7 +1,5 @@
 # waiter-availability-webapp
-
 # About the application.
-
 <blockquote>
 <P>The application the allows users to choose the days which they are able to work in this case waiters will be our users.</p>
 <P>It will then show the administration in a table form how who will work on a particular day of the week</p>
@@ -30,6 +28,5 @@
 <p> On the landing page there's a button that allows you to go to the admin page <em>localhost:3002/admin</em>   where you can view all the waiters and the days the are working and to see which </p>
 <P> have enough waiters, still needs waiters or that has too much waiters.</p>
 <P> there's a reset button that will erase all the waiters from the table </p>
-
 
 </blockquote>
