@@ -15,11 +15,11 @@
 * [NodeJS](https://nodejs.org/en/) is an open source server framework.
 * [Mongo](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-mongodb-on-ubuntu-16-04) is a document database with the scalability and flexibility that you want with the querying and indexing that you need.
 
-### There are also dependencies you need to install
+## There are also dependencies you need to install
 * [Body-Parser](https://www.npmjs.com/package/body-parser) parse incoming request bodies in a middleware before your handlers, available under the req.body property.
 * [express](https://www.npmjs.com/package/express) is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
-* [express-handlebars](https://www.npmjs.com/package/express-handlebars)
-* [mongoose](https://www.npmjs.com/package/mongoose)
+* [express-handlebars](https://www.npmjs.com/package/express-handlebars) is a popular templating engine that is powerful, simple to use and has a large community. It is based on the Mustache template language, but improves it in several important ways.
+* [mongoose](https://www.npmjs.com/package/mongoose) In simple words, Mongoose acts as an intermediate between mongodb and server side language(like NodeJs).
 
 <!-- ### For testing I used [Mocha](https://mochajs.org/). -->
 
