@@ -12,16 +12,16 @@
 * You can get the application repository  by cloning it at [here](https://github.com/Nelson112/waiter-availability-webapp)
 
 ## You will need to install:
-* [NodeJS](https://nodejs.org/en/) is an open source server framework
-* [Mongo](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-mongodb-on-ubuntu-16-04) is a document database with the scalability and flexibility that you want with the querying and indexing that you need
+* [NodeJS](https://nodejs.org/en/) is an open source server framework.
+* [Mongo](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-mongodb-on-ubuntu-16-04) is a document database with the scalability and flexibility that you want with the querying and indexing that you need.
 
 ### There are also dependencies you need to install
-* [Body-Parser](https://www.npmjs.com/package/body-parser)
-* [express](https://www.npmjs.com/package/express)
+* [Body-Parser](https://www.npmjs.com/package/body-parser) parse incoming request bodies in a middleware before your handlers, available under the req.body property.
+* [express](https://www.npmjs.com/package/express) is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 * [express-handlebars](https://www.npmjs.com/package/express-handlebars)
 * [mongoose](https://www.npmjs.com/package/mongoose)
 
-### For testing I used [Mocha](https://mochajs.org/).
+<!-- ### For testing I used [Mocha](https://mochajs.org/). -->
 
 <P> The app listens to port 3002 so the way you would get the app started is to make sure node is running in the terminal, and <em>localhost:3002</em> </p>
 <p> would take you straight to the landing page </p>
